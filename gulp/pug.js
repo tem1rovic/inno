@@ -13,7 +13,6 @@ module.exports = function () {
 				$.gulp.src(path.path.src.pug)
 					.pipe($.plugins.plumber())
 					.pipe(emittyPug.filter(global.emittyPugChangedFile))
-					.pipe($.plugins.data(() => JSON.parse(fs.readFileSync('./src/base/data/data.json', 'utf8')))) // Парсим JSON
 					.pipe($.plugins.pug({
 						pretty: !$.yargs.minifyHtml
 					}))

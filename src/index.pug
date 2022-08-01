@@ -1,41 +1,12 @@
-extends base/pug/base
+doctype html
+html(lang="ru")
+    //- Include head
+    include base/pug/head
+    body
+        include components/header/header
 
-append variables
-    - var title = 'Главная страница сайта'
-    - var pageClass = 'homepage'
-    - var menuHref = '/'
+        main
+            h1 This is main section
 
-block top-position
-    section.top-position.mb-5
-        .module
-            .container
-                .module__title Модуль в позиции TOP
-
-block columns
-    main.content--right.col-lg-9
-        article.page.textblock
-            h1.mb-5 !{title}
-
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, praesentium.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid consectetur consequatur deserunt dolores est ex fugit non odit reprehenderit! Animi commodi itaque magnam maxime nam obcaecati quis quos repudiandae.
-            p
-                // Подключение svg иконок
-                +icon("arrow-up")
-            p
-                img.img-fluid(src="./images/no-foto.webp" alt="")
-
-            p
-                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#callback") Открыть модалку с формой
-
-        //-pagination
-        .pagination.mt-30
-            include ./components/pagination/pagination
-
-    //- Include sidebar
-    include ./components/sidebar/sidebar--left
-
-block bottom-position
-    section.bottom-position.mt-5
-        .module
-            .container
-                .module__title Модуль в позиции BOTTOM
+        include components/footer/footer
+        script(src=`./js/main.js`)
